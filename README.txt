@@ -1,7 +1,9 @@
 SETUP (about 15 minutes)
 
 1. Put this whole folder on GitHub, then in Netlify choose "Add new site > Import from Git".
-2. In public/index.html find CONFIG and replace the Paystack PUBLIC key (pk_test_... for now).
+   The site files are in the repository root. netlify.toml sets the publish directory
+   to "."; leave the build command empty because this static site needs no build step.
+2. In index.html find CONFIG and replace the Paystack PUBLIC key (pk_test_... for now).
 3. In Netlify > Site configuration > Environment variables add these:
 
    PAYSTACK_SECRET_KEY  your sk_test_... (switch to sk_live_... when going live)
@@ -25,7 +27,7 @@ SETUP (about 15 minutes)
 
 GOING LIVE
 - Swap in pk_live_... in index.html and sk_live_... in Netlify, set the Live webhook URL, redeploy.
-- Replace the placeholder prices in BOTH public/index.html and netlify/functions/paystack-webhook.js (keep them identical).
+- Replace the placeholder prices in BOTH index.html and netlify/functions/paystack-webhook.js (keep them identical).
 
 NOTES
 - Gmail sends about 500 emails/day. For more, use Brevo, Zoho or Resend SMTP (change SMTP_* values only).
